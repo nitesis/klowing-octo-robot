@@ -19,7 +19,7 @@ public class AlwaysEven {
 				while (true) {
 					int val = ae.getValue(); 
 						if (val%2!=0){
-//							System.out.println(val);
+							System.out.println(val);
 							System.exit(0); 
 						} else {
 							System.out.println(val);
@@ -29,8 +29,11 @@ public class AlwaysEven {
 		};
 		
 	t1.start();
-		while (true) { 
-			ae.next();
+		while (true) {
+			synchronized (ae) {
+				ae.next();
+			}
+			
 		} 
 	}
 }
