@@ -2,7 +2,7 @@
 public class AlwaysEven {
 
 	private int i = 0;
-	private void next() { 
+	private synchronized void next() { // bessere Variante, weil bessere Performance
 		i++;
 		i++; 
 	}
@@ -30,9 +30,10 @@ public class AlwaysEven {
 		
 	t1.start();
 		while (true) {
-			synchronized (ae) {
+			/* geht auch, ist aber etwas langsamer
+			synchronized (ae) { */
 				ae.next();
-			}
+		/*	} */
 			
 		} 
 	}
