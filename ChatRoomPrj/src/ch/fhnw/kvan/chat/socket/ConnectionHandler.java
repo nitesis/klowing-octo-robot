@@ -1,4 +1,4 @@
-package ch.fhnw.kvan.chat.general;
+package ch.fhnw.kvan.chat.socket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class ConnectionHandler implements Runnable {
 
 	private ServerSocket server;
 
-	ConnectionHandler(ServerSocket server) {
+	public ConnectionHandler(ServerSocket server) {
 		this.server = server;
 	}
 

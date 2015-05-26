@@ -43,8 +43,9 @@ public class CompressClient {
 		final Socket sock = new Socket(server, port);
 
 		// Send uncompressed byte stream to server
+		
 		sendBytes(sock, fileIn);
-
+		
 		// Receive compressed byte stream from server
 		InputStream sockIn = sock.getInputStream();
 		int bytesRead;
@@ -75,13 +76,16 @@ public class CompressClient {
 
 	private static void sendBytes(Socket sock, InputStream fileIn)
 			throws IOException {
+		
 		OutputStream sockOut = sock.getOutputStream();
 		int bytesRead;
 		byte[] buffer = new byte[BUFSIZE];
 		
+		
 		while ((bytesRead = fileIn.read(buffer)) != -1) {
 			sockOut.write(buffer, 0, bytesRead);
 			System.out.print("W"); // Writing progress indicator
+		
 		}
 		sock.shutdownOutput();
 		System.out.println(); // End progress indicator line

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_40/lib/rt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Eve/Documents/FHNW/3. Semester/swc/le11-Logging/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Eve/Documents/FHNW/kvanC/Nathalie/Uebung01_Sockets/Lösung/Uebung01_Sockets/src/servlet-api.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
