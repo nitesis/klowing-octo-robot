@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/rt-ha-2.2.8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
