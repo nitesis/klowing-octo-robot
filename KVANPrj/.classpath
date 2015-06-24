@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/rt-ha-2.2.8-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/log4j-1.2.16.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Applications/apache-tomcat-8.0.22/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javax.annotation-api-1.2.jar"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javax.inject-2.2.0.jar"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javax.ws.rs-api-2.0.jar"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/grizzly-http-server-2.3.8.jar"/>
-	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/jersey-server.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/genson-0.98.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/grizzly-framework-2.3.8.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/grizzly-http-2.3.8.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/grizzly-http-server-2.3.8.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/hk2-api-2.2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/hk2-locator-2.2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/hk2-utils-2.2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javax.inject-2.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/javax.ws.rs-api-2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/jersey-client.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/jersey-common.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/jersey-container-grizzly2-http-2.7.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/jersey-guava-2.7.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/jersey-server.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/kvanC/__remotecopy/FS15/L5 REST/src/lib/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/FS2015/log4j-1.2.16.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
