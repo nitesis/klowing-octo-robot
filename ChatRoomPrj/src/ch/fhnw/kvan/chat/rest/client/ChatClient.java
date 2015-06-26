@@ -15,33 +15,106 @@ import ch.fhnw.kvan.chat.interfaces.IChatRoom;
 
 
 public class ChatClient implements ch.fhnw.kvan.chat.interfaces.IChatRoom, ch.fhnw.kvan.chat.interfaces.IChatDriver{
+
+	private static String screenName;
+	private static String topic;
+	private static String msg;
+
+	
+	public ChatClient(String screenName, String topic, String msg) {
+		ChatClient.screenName = screenName;
+		ChatClient.topic = topic;
+		ChatClient.msg = msg;
+	}
 	
 	public static void main(String[]args) {	
 		
 		Response result;
 
+		ChatClient viviane = new ChatClient("vivi", "Essen", "Hunger");
+		
 		Client c = ClientBuilder.newClient();
 		WebTarget r = c.target("http://localhost:9998/chat");
+		
+		// ============================ PUT users ===========================
+		
+		result = r
+				.path("/users/" + screenName)
+				.request()
+				.accept(MediaType.APPLICATION_XML)
+				.put(Entity.entity(screenName,
+						MediaType.TEXT_PLAIN));
 
-		// ============================ POST request ===========================
-		String str = "I'm damned, if I will answer!";
+		System.out.println("Status:   " + result.getStatus());
+		System.out.println("Request:   " + result);
 
-		result = r.path("/politics").request()
-				.post(Entity.entity(str, MediaType.TEXT_PLAIN));
-
-		if (result.getStatus() != 201) {
+		if (result.getStatus() != 204) {
 			throw new RuntimeException("Failed : HTTP error code : "
 					+ result.getStatus());
 		}
+		
+		// ============================ DELETE users =================================
 
+				result = r.path("/users/" + screenName).request().accept(MediaType.TEXT_PLAIN)
+						.delete();
+				System.out.println(result);
+				System.out.println("Status:   " + result.getStatus());
+				System.out.println("Request:   " + result);
+
+				if (result.getStatus() != 200) {
+					throw new RuntimeException("Failed : HTTP error code : "
+							+ result.getStatus());
+				}
+
+		// ============================ PUT topic ===========================
+		
+		result = r
+				.path("/topics/" + topic)
+				.request()
+				.accept(MediaType.APPLICATION_XML)
+				.put(Entity.entity(topic,
+						MediaType.TEXT_PLAIN));
+
+		System.out.println("Status:   " + result.getStatus());
+		System.out.println("Request:   " + result);
+
+		if (result.getStatus() != 204) {
+			throw new RuntimeException("Failed : HTTP error code : "
+					+ result.getStatus());
+		}
+		
+		// ============================ DELETE topic =================================
+
+		result = r.path("/topics/" + topic).request().accept(MediaType.TEXT_PLAIN)
+				.delete();
 		System.out.println(result);
 		System.out.println("Status:   " + result.getStatus());
-		System.out.println("Location: " + result.getLocation());
-		System.out.println("Content-Location: "
-				+ result.getHeaders().getFirst("Content-Location"));
+		System.out.println("Request:   " + result);
 
-		// ============================ GET ====================================
-		result = r.path("/politics/2/").request().accept(MediaType.TEXT_PLAIN)
+		if (result.getStatus() != 200) {
+			throw new RuntimeException("Failed : HTTP error code : "
+					+ result.getStatus());
+		}
+		
+		// ============================ POST message ===========================
+				
+				result = r.path("/messages/" + topic).request()
+						.post(Entity.entity(msg, MediaType.TEXT_PLAIN));
+
+				if (result.getStatus() != 201) {
+					throw new RuntimeException("Failed : HTTP error code : "
+							+ result.getStatus());
+				}
+
+				System.out.println(result);
+				System.out.println("Status:   " + result.getStatus());
+				System.out.println("Location: " + result.getLocation());
+				System.out.println("Content-Location: "
+						+ result.getHeaders().getFirst("Content-Location"));
+				
+		// ============================ GET messages ====================================
+				
+		result = r.path("messages/" + topic).request().accept(topic, MediaType.TEXT_PLAIN)
 				.get();
 
 		String output = result.readEntity(String.class);
@@ -58,68 +131,10 @@ public class ChatClient implements ch.fhnw.kvan.chat.interfaces.IChatRoom, ch.fh
 					+ result.getStatus());
 		}
 
-		// ============================ PUT ====================================
-		String msg = "I'm sick and tired of politics";
-
-		result = r.path("/politics/3/").request()
-				.put(Entity.entity(msg, MediaType.TEXT_PLAIN));
-
-		System.out.println("Status:   " + result.getStatus());
-		System.out.println("Request:   " + result);
-
-		if (result.getStatus() != 204) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ result.getStatus());
-		}
-
-		// ============================ GET ====================================
-		result = r.path("/politics/3/").request().accept(MediaType.TEXT_PLAIN)
-				.get();
-
-		System.out.println(result);
-		System.out.println("Status:   " + result.getStatus());
-		System.out.println("Location: " + result.getLocation());
-		System.out.println("Content-Location: "
-				+ result.getHeaders().getFirst("Content-Location"));
-		System.err.println("Response: " + result.readEntity(String.class));
-
-		if (result.getStatus() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ result.getStatus());
-		}
 
 		// ============================ GET all msg ===========================
 
-		result = r.path("/politics/").request().accept(MediaType.TEXT_XML)
-				.get();
-
-		System.out.println("Status:   " + result.getStatus());
-		System.out.println("Location: " + result.getLocation());
-		System.out.println("Content-Location: "
-				+ result.getHeaders().getFirst("Content-Location"));
-		System.out.println("Response: " + result.readEntity(String.class));
-
-		if (result.getStatus() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ result.getStatus());
-		}
-
-		// ============================ DELETE =================================
-
-		result = r.path("/politics/3/").request().accept(MediaType.TEXT_XML)
-				.delete();
-		System.out.println(result);
-		System.out.println("Status:   " + result.getStatus());
-		System.out.println("Request:   " + result);
-
-		if (result.getStatus() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ result.getStatus());
-		}
-
-		// ============================ GET all msg ===========================
-
-		result = r.path("/politics/").request().accept(MediaType.TEXT_XML)
+		result = r.path("refresh/" + topic).request().accept(topic, MediaType.TEXT_XML)
 				.get();
 
 		System.out.println("Status:   " + result.getStatus());
@@ -148,28 +163,20 @@ public class ChatClient implements ch.fhnw.kvan.chat.interfaces.IChatRoom, ch.fh
 
 	@Override
 	public IChatRoom getChatRoom() {
-		
-		return this;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public boolean addParticipant(String name) throws IOException {
-		Client c = ClientBuilder.newClient();
-		WebTarget r = c.target("http://localhost:9998/chat");
-
-		 r.path("/users").request()
-				.put(Entity.entity(name, MediaType.TEXT_PLAIN));
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean removeParticipant(String name) throws IOException {
-		Client c = ClientBuilder.newClient();
-		WebTarget r = c.target("http://localhost:9998/chat");
-		
-		r.path("/users").request()
-		.put(Entity.entity(name, MediaType.TEXT_PLAIN));
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -201,5 +208,6 @@ public class ChatClient implements ch.fhnw.kvan.chat.interfaces.IChatRoom, ch.fh
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
+
+	

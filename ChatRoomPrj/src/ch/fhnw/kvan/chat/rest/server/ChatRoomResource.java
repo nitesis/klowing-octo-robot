@@ -108,7 +108,7 @@ public class ChatRoomResource extends Application {
 		@POST
 		@Path("messages/{topic}") //wohin geht die Anfrage
 		@Produces("text/plain") //wo geht die Antwort hin
-		public void sendMessage(@PathParam("topic")String topic, String msg) {
+		public void postMessage(@PathParam("topic")String topic, String msg) {
 			
 			try {
 				chatroom.addMessage(topic, msg);
@@ -126,7 +126,7 @@ public class ChatRoomResource extends Application {
 		@GET
 		@Path("messages/{topic}") //wohin geht die Anfrage
 		@Produces("text/plain") //wo geht die Antwort hin
-		public Response getMessage(@PathParam("topic")String topic) {
+		public Response getMessages(@PathParam("topic")String topic) {
 			
 			String ret = null;
 			try {
