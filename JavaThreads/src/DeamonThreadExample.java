@@ -16,6 +16,8 @@ public class DeamonThreadExample {
 			}
 		}, "Deamon-Thread");
 
+		deamonThread.setDaemon(true); // true = making this thread deamon; false = DeadLock, d.h. Endlosschleife
+		deamonThread.start();
 	}
 
 }
